@@ -14,3 +14,5 @@ def index():
 
     return render_template('todos.html',title="Get It Done!", tasks=tasks)
 
+
+app.run()
