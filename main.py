@@ -3,14 +3,15 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://get-it-done:1990@localhost:80/get-it-done'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://get-it-done:1990@localhost:3306/get-it-done'
 app.config['SQLALCHEMY_ECHO'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class Task(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
-    name =db.Column(db.Strin(120))
+    name = db.Column(db.String(120))
 
     def __init__(self, name):
         self.name = name
@@ -28,4 +29,4 @@ def index():
 
 
 if __name__ == '__main__':
-app.run()
+    app.run()
