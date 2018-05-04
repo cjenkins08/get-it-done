@@ -8,7 +8,7 @@ tasks = []
 @app.route('/', methods=['POST', 'GET'])
 def index():
 
-    if request.methon == 'POST':
+    if request.method == 'POST':
         task = request.form['task']
         tasks.append(task)
 
